@@ -5,6 +5,8 @@ from controllers import users_controller
 
 app = Flask(__name__)
 
+"Testi testi testi"
+
 """ Mikä tässä koodissa on vikana?
 
 Jos tätä arvoidaan vain sillä perusteella, toimiiko kaikki, niin koodissa ei ole mitään vikaa, koska kaikki ominaisuudet
