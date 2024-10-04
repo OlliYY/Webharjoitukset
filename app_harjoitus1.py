@@ -1,6 +1,8 @@
 import mysql.connector
 from flask import Flask, jsonify
 
+from controllers import users_controller
+
 app = Flask(__name__)
 
 """ Mikä tässä koodissa on vikana?
@@ -23,14 +25,8 @@ def get_all_products():
             products = cur.fetchall()
             return jsonify(products)
 
+app.add_url_rule('/api/users', view_func=users_controller.get_all_users)
 
-@app.route('/api/users')
-def get_all_users():  # put application's code here
-    with mysql.connector.connect(user="root", database="sovelluskehykset_bad1", password="") as con:
-        with con.cursor(dictionary=True) as cur:
-            cur.execute("SELECT * FROM users")
-            users = cur.fetchall()
-            return jsonify(users)
 
 
 if __name__ == '__main__':
